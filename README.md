@@ -29,7 +29,7 @@ brew install neovim
 I use [Powerlevel10k](https://github.com/romkatv/powerlevel10k). You can install it with:
 ```bash
 brew install powerlevel10k
-echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc_suffix
+echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc_suffix
 ```
 
 ### Tmux
