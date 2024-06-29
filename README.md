@@ -37,6 +37,9 @@ echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/
 brew install tmux
 ```
 
+### JetBrains Mono Nerd Font
+I use the JetBrains Mono Nerd Font with ligatures.
+
 ## Installation
 
 ```bash
