@@ -67,15 +67,16 @@ return {
             opts.desc = "Restart LSP"
             keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
-            vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-                vim.lsp.handlers.hover,
-                { border = 'rounded' }
-            )
-
-            vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-                vim.lsp.handlers.signature_help,
-                { border = 'rounded' }
-            )
+            -- These options now conflict with noice.nvim
+            -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+            --     vim.lsp.handlers.hover,
+            --     { border = 'rounded' }
+            -- )
+            --
+            -- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+            --     vim.lsp.handlers.signature_help,
+            --     { border = 'rounded' }
+            -- )
         end
 
         -- used to enable autocompletion (assign to every lsp server config)
