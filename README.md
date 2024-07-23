@@ -13,6 +13,12 @@ I use [Kitty](https://sw.kovidgoyal.net/kitty/) as my terminal emulator. You can
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
 
+### Mac Mouse Fix
+[Mac Mouse Fix](https://macmousefix.com/) is an app that conceals an external mouse with the motions on the trackpad. It also defines some special movements for the mouse. For linux, this won't be necessary.
+
+### Aerospace
+[Aerospace](https://github.com/nikitabobko/AeroSpace) is a window tiling manager for macOS. For linux, this won't work.
+
 ### Stow
 Stow can be found on [GNU Stow](https://www.gnu.org/software/stow/). Install it with:
 ```bash
