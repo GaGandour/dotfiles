@@ -35,6 +35,7 @@ return {
                 "jedi_language_server",
                 "gopls",
                 "clangd",
+                "clojure_lsp",
             },
             -- auto-install configured servers with lspconfig
             automatic_installation = true, -- not the same as ensure_installed
