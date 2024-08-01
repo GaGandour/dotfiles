@@ -52,3 +52,10 @@ mkcd() {
     mkdir -p "${1}"
     cd "${1}"
 }
+
+# ----- the fuck ------
+eval $(thefuck --alias)
+alias fk="fuck"
+
+# ----- zsh autosuggestions -----
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

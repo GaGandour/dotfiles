@@ -10,3 +10,7 @@ brew install lazygit
 brew install npm
 brew install bat
 brew install --cask font-jetbrains-mono-nerd-font
+brew install thefuck
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
+brew install zsh-autosuggestions

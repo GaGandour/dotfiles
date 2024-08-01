@@ -104,6 +104,19 @@ brew install npm
 brew install bat
 ```
 
+(Optional) [The F***](https://github.com/nvbn/thefuck). It's an ugly word, but a useful tool. You can install it with:
+```bash
+brew install thefuck
+```
+If it doesn't work, (even after sourcing the `.zshrc` file), go to the repo and check the dependencies.
+
+(Optional) [ZSH-Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/)
+Suggests an autocomplete in zsh terminal. Can be installed with:
+```bash
+brew install zsh-autosuggestions
+```
+
+
 ### JetBrains Mono Nerd Font
 I use the JetBrains Mono Nerd Font with ligatures.
 ```bash
@@ -119,6 +132,12 @@ brew install --cask font-jetbrains-mono-nerd-font
 [Stats](https://github.com/exelban/stats) is a system monitor for macOS. You can install it with:
 ```bash
 brew install stats
+```
+
+### Maccy
+[Maccy](https://maccy.app/) is a clipboard manager and stores a history of copy-pastes. You can install it with:
+```bash
+brew install maccy
 ```
 
 ## Installation
