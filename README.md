@@ -92,11 +92,21 @@ brew install npm
 brew install bat
 ```
 
-
 ### JetBrains Mono Nerd Font
 I use the JetBrains Mono Nerd Font with ligatures.
 ```bash
 brew install --cask font-jetbrains-mono-nerd-font
+```
+
+## Optional apps that I like in macOS
+
+### HiddenBar
+[HiddenBar](https://github.com/dwarvesf/hidden) is a menu bar manager for macOS. It hides the icons that you don't want to see. It's available at app store.
+
+### Stats
+[Stats](https://github.com/exelban/stats) is a system monitor for macOS. You can install it with:
+```bash
+brew install stats
 ```
 
 ## Installation
