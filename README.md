@@ -50,6 +50,13 @@ echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/
 brew install tmux
 ```
 
+To make use of the tmux plugins in our setup, we'll need tpm (tmux plugin manager). We install it with `git`:
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+After that, enter tmux and press `Ctrl-A` and then `Shift-I` to install the plugins.
+
+
 ### Terminal additional add ons
 I use `zoxide` as my `cd` command.
 ```bash

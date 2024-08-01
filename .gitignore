@@ -1,7 +1,1 @@
-.tmux/plugins/catppuccin
-.tmux/plugins/tmux-continuum
-.tmux/plugins/tmux-resurrect
-.tmux/plugins/tmux-themepack
-.tmux/plugins/tmux-tokyo-night
-.tmux/plugins/tpm
-.tmux/plugins/vim-tmux-navigator
+.config/tmux/plugins/
