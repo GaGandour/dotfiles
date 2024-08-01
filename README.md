@@ -2,7 +2,12 @@
 
 This repository contains my dotfiles. I use [GNU Stow](https://www.gnu.org/software/stow/) to manage them. This video on [YouTube](https://www.youtube.com/watch?v=y6XCebnB9gs) from _Dreams of Autonomy_ explains how to use Stow to manage dotfiles.
 
+To install everything that is from homebrew at once, run `./install_brew_packages.sh`
+
 ## Requirements
+
+### Homebrew
+I use [Homebrew](https://brew.sh/) as my main package manager. The website has info on how to download it.
 
 ### Zsh
 I use Zsh as my shell.
@@ -26,7 +31,7 @@ brew install stow
 ```
 
 ### Raycast
-Raycast is an improved MacOS Spotlight.
+[Raycast](https://www.raycast.com/) is an improved MacOS Spotlight.
 ```bash
 brew install --cask raycast
 ```
@@ -42,7 +47,6 @@ Remember to set the ChatGPT secret key accordingly so that the ChatGPT plugin wo
 I use [Powerlevel10k](https://github.com/romkatv/powerlevel10k). You can install it with:
 ```bash
 brew install powerlevel10k
-echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc_suffix
 ```
 
 ### Tmux
@@ -91,6 +95,9 @@ brew install bat
 
 ### JetBrains Mono Nerd Font
 I use the JetBrains Mono Nerd Font with ligatures.
+```bash
+brew install --cask font-jetbrains-mono-nerd-font
+```
 
 ## Installation
 
