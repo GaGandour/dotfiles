@@ -41,7 +41,7 @@ I use [Neovim](https://neovim.io/) as my text editor. You can install it with:
 ```bash
 brew install neovim
 ```
-Remember to set the ChatGPT secret key accordingly so that the ChatGPT plugin works.
+Remember to set the ChatGPT secret key accordingly so that the ChatGPT plugin works. The same holds for the Github Copilot key.
 
 ### Powerlevel10k
 I use [Powerlevel10k](https://github.com/romkatv/powerlevel10k). You can install it with:
