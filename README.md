@@ -25,11 +25,18 @@ Stow can be found on [GNU Stow](https://www.gnu.org/software/stow/). Install it 
 brew install stow
 ```
 
+### Raycast
+Raycast is an improved MacOS Spotlight.
+```bash
+brew install --cask raycast
+```
+
 ### Neovim
 I use [Neovim](https://neovim.io/) as my text editor. You can install it with:
 ```bash
 brew install neovim
 ```
+Remember to set the ChatGPT secret key accordingly so that the ChatGPT plugin works.
 
 ### Powerlevel10k
 I use [Powerlevel10k](https://github.com/romkatv/powerlevel10k). You can install it with:
@@ -42,6 +49,38 @@ echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/
 ```bash
 brew install tmux
 ```
+
+### Terminal additional add ons
+I use `zoxide` as my `cd` command.
+```bash
+brew install zoxide
+```
+
+I use `eza` as my `ls` command.
+```bash
+brew install eza
+```
+
+My telescope (neovim plugin) configuration uses ripgrep.
+```bash
+brew install ripgrep
+```
+
+My lazygit neovim plugin needs lazygit.
+```bash
+brew install lazygit
+```
+
+One of my formatters (prettier) needs `npm` to be installed.
+```bash
+brew install npm
+```
+
+(Optional) I also normally have `bat` installed.
+```bash
+brew install bat
+```
+
 
 ### JetBrains Mono Nerd Font
 I use the JetBrains Mono Nerd Font with ligatures.
