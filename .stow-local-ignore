@@ -1,0 +1,27 @@
+# This is the standard ignore file used by stow. Do NOT modify this. (Unless you know what you're doing).
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# From here on, this is my custom ignore file
+^/install_brew_packages.sh
