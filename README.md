@@ -140,6 +140,12 @@ brew install stats
 brew install maccy
 ```
 
+### Alt-Tab
+[Alt-Tab](https://alt-tab-macos.netlify.app/) is an improved macOS app switcher. You can install it with:
+```bash
+brew install --cask alt-tab
+```
+
 ## Installation
 
 ```bash
