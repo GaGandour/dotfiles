@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd('BufEnter', {
     command = 'setlocal wrap'
 })
 
+-- This is for neorg concealer
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.norg"},
+  command = "set conceallevel=3"
+})
+
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
