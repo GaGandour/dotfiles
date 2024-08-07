@@ -6,7 +6,7 @@ return {
 		highlight = { "Question" },
 		exclude = {
 			{
-				filetypes = { "markdown" },
+				filetypes = { "markdown", "neorg" },
 			},
 		},
 	},

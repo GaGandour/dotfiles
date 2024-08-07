@@ -20,11 +20,13 @@ return {
                             icon_preset = "diamond",
                         }
                     },
+                    ["core.summary"] = {},
 					["core.dirman"] = {
 					    config = {
 					        workspaces = {
 					            my_notes = "~/Neorg/MyNotes"
-					        }
+					        },
+                            default_workspace = "my_notes",
 					    }
 					}
 				},
