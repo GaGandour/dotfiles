@@ -18,3 +18,9 @@ Then, on neovim, run:
 ```vim
 :Neorg sync-parsers
 ```
+
+## Obsidian
+This plugin requires [pngpaste](https://github.com/jcsalterego/pngpaste) to work.
+```bash
+brew install pngpaste
+```

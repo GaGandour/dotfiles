@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd('BufEnter', {
     command = 'setlocal wrap'
 })
 
+-- This is for obsidian (markdown) concealer
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.md"},
+  command = "set conceallevel=2"
+})
+
 -- This is for neorg concealer
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   pattern = {"*.norg"},
