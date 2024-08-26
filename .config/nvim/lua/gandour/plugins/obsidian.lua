@@ -85,7 +85,7 @@ return {
 				opts = { noremap = false, expr = true, buffer = true },
 			},
 			-- Toggle check-boxes.
-			["<leader>ch"] = {
+			["<localleader>td"] = {
 				action = function()
 					return require("obsidian").util.toggle_checkbox()
 				end,
@@ -179,7 +179,7 @@ return {
 
 		-- Optional, for templates (see below).
 		templates = {
-			folder = "templates",
+			folder = "Templates",
 			date_format = "%d-%M-%Y",
 			time_format = "%H:%M",
 			-- A map for custom variables, the key should be the variable and the value a function
@@ -305,17 +305,17 @@ return {
 			block_ids = { hl_group = "ObsidianBlockID" },
 			hl_groups = {
 				-- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
-				ObsidianTodo = { bold = true, fg = "#f78c6c" },
-				ObsidianDone = { bold = true, fg = "#89ddff" },
-				ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
-				ObsidianTilde = { bold = true, fg = "#ff5370" },
-				ObsidianImportant = { bold = true, fg = "#d73128" },
-				ObsidianBullet = { bold = true, fg = "#89ddff" },
-				ObsidianRefText = { underline = true, fg = "#c792ea" },
-				ObsidianExtLinkIcon = { fg = "#c792ea" },
-				ObsidianTag = { italic = true, fg = "#89ddff" },
-				ObsidianBlockID = { italic = true, fg = "#89ddff" },
-				ObsidianHighlightText = { bg = "#75662e" },
+				ObsidianTodo = { bold = true, fg = "#b5bfe2" },
+				ObsidianDone = { bold = true, fg = "#a6d189" },
+				ObsidianRightArrow = { bold = true, fg = "#8caaee" },
+				ObsidianTilde = { bold = true, fg = "#f4b8e4" },
+				ObsidianImportant = { bold = true, fg = "#e78284" },
+				ObsidianBullet = { bold = true, fg = "#b5bfe2" },
+				ObsidianRefText = { underline = true, fg = "#8caaee" },
+				ObsidianExtLinkIcon = { fg = "#8caaee" },
+				ObsidianTag = { italic = true, fg = "#81c8be" },
+				ObsidianBlockID = { italic = true, fg = "#a6d189" },
+				ObsidianHighlightText = { bg = "#e5c890" },
 			},
 		},
 
