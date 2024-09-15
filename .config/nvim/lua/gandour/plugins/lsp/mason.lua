@@ -49,6 +49,7 @@ return {
                 "black", -- python formatter
                 "pylint", -- python linter
                 "joker", -- clojure linter and formatter
+                "clang-format", -- C/C++ formatter
             },
         })
     end,

@@ -11,12 +11,19 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				clojure = { "joker" },
+				cpp = { "my_c_formatter" },
 			},
 			-- format_on_save = {
 			--     lsp_fallback = true,
 			--     async = false,
 			--     timeout_ms = 1000,
 			-- },
+			formatters = {
+				my_c_formatter = {
+					command = "clang-format",
+					args = '--style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 120, AllowShortIfStatementsOnASingleLine: true, AllowShortLoopsOnASingleLine: true, AllowShortFunctionsOnASingleLine: true}"',
+				},
+			},
 		})
 
 		require("conform").formatters.black = {
