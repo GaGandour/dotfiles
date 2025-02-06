@@ -21,21 +21,6 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ### Mac Mouse Fix
 [Mac Mouse Fix](https://macmousefix.com/) is an app that conceals an external mouse with the motions on the trackpad. It also defines some special movements for the mouse. For linux, this won't be necessary.
 
-### Yabai and SKHD
-It's my window tiling manager. You can install it with:
-```bash
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
-```
-
-Then, you must run:
-```bash
-yabai --start-service
-yabai --restart-service
-skhd --start-service
-skhd --restart-service
-```
-
 ### Stow
 Stow can be found on [GNU Stow](https://www.gnu.org/software/stow/). Install it with:
 ```bash
