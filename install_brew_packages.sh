@@ -12,3 +12,4 @@ brew install bat
 brew install --cask font-jetbrains-mono-nerd-font
 brew install thefuck
 brew install zsh-autosuggestions
+brew install yazi ffmpegthumbnailer ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide imagemagick font-symbols-only-nerd-font

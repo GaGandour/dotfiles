@@ -57,6 +57,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 After that, enter tmux and press `Ctrl-A` and then `Shift-I` to install the plugins.
 
+### Yazi
+Yazi is a terminal file manager. You can install it with:
+
+```bash
+brew install yazi ffmpegthumbnailer ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide imagemagick font-symbols-only-nerd-font
+```
 
 ### Terminal additional add ons
 I use `zoxide` as my `cd` command.
