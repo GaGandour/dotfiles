@@ -131,10 +131,16 @@ brew install stats
 brew install maccy
 ```
 
-### Alt-Tab
-[Alt-Tab](https://alt-tab-macos.netlify.app/) is an improved macOS app switcher. You can install it with:
+### Aerospace
+[Aerospace](https://github.com/nikitabobko/AeroSpace) is an i3-like tiling window manager for macOS
 ```bash
-brew install --cask alt-tab
+brew install --cask nikitabobko/tap/aerospace
+```
+
+### Mouseless
+[Mouseless](https://mouseless.click/) is an app that allows you to avoid using your mouse by using keyboard shortcuts.
+```bash
+brew install --cask mouseless
 ```
 
 ## Installation
