@@ -2,7 +2,7 @@ return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
 	opts = {
-		bigfile = { enabled = false },
+		bigfile = { enabled = true },
 		dashboard = { enabled = false },
 		explorer = { enabled = false },
 		indent = { enabled = false },
@@ -10,7 +10,7 @@ return {
 		notifier = { enabled = false },
 		quickfile = { enabled = false },
 		scope = { enabled = false },
-		scroll = { enabled = false },
+		scroll = { enabled = true },
 		statuscolumn = { enabled = false },
 		words = { enabled = false },
 		picker = {
@@ -31,9 +31,6 @@ return {
 			-- still override it in different keymaps
 			layout = {
 				preset = "sidebar",
-				-- When reaching the bottom of the results in the picker, I don't want
-				-- it to cycle and go back to the top
-				cycle = false,
 			},
 			layouts = {
 				-- I wanted to modify the ivy layout height and preview pane width,
@@ -48,7 +45,7 @@ return {
 					preview = "main",
 					layout = {
 						backdrop = false,
-						width = 40,
+						width = 60,
 						min_width = 40,
 						height = 0,
 						position = "left",
@@ -101,7 +98,7 @@ return {
 					format = "git_log",
 					preview = "git_show",
 					confirm = "git_checkout",
-					layout = "vertical",
+					layout = "default",
 				})
 			end,
 			desc = "Git Log",
@@ -146,7 +143,7 @@ return {
 					finder = "buffers",
 					format = "buffer",
 					hidden = true,
-					unloaded = true,
+					unloaded = false,
 					current = true,
 					sort_lastused = true,
 					win = {
