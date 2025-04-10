@@ -31,6 +31,9 @@ return {
 		local t = ls.text_node
 		local i = ls.insert_node
 
+        local extras = require("luasnip.extras")
+        local rep = extras.rep
+
 		-- #####################################################################
 		--                            Markdown
 		-- #####################################################################
@@ -118,6 +121,21 @@ return {
 				}),
 				t("("),
 				i(2),
+				t(")"),
+			}),
+		})
+
+		ls.add_snippets("python", {
+			s({
+				trig = "print",
+				name = "Print and Log",
+				desc = "Print and log",
+			}, {
+				t("print("),
+				i(1),
+				t(")"),
+				t({ "", "logging.info(" }),
+				rep(1),
 				t(")"),
 			}),
 		})
