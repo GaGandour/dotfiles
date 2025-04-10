@@ -1,5 +1,6 @@
-return {
-	{
-		"GCBallesteros/jupytext.vim",
-	},
-}
+return {}
+-- return {
+-- 	{
+-- 		"GCBallesteros/jupytext.vim",
+-- 	},
+-- }
