@@ -217,7 +217,7 @@ return {
 			desc = "Goto T[y]pe Definition",
 		},
 		{
-			"<leader>D",
+			"<leader>d",
 			function()
 				Snacks.picker.diagnostics_buffer()
 			end,
