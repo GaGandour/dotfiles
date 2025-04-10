@@ -9,101 +9,119 @@
 -- https://youtu.be/FmHhonPjvvA?si=8NrcRWu4GGdmTzee
 
 return {
-  "L3MON4D3/LuaSnip",
-  enabled = true,
-  opts = function(_, opts)
-    local ls = require("luasnip")
+	"L3MON4D3/LuaSnip",
+	enabled = true,
+	opts = function(_, opts)
+		local ls = require("luasnip")
 
-    -- Add prefix ";" to each one of my snippets using the extend_decorator
-    -- I use this in combination with blink.cmp. This way I don't have to use
-    -- the transform_items function in blink.cmp that removes the ";" at the
-    -- beginning of each snippet. I added this because snippets that start with
-    -- a symbol like ```bash aren't having their ";" removed
-    -- https://github.com/L3MON4D3/LuaSnip/discussions/895
-    -- NOTE: THis extend_decorator works great, but I also tried to add the ";"
-    -- prefix to all of the snippets loaded from friendly-snippets, but I was
-    -- unable to do so, so I still have to use the transform_items in blink.cmp
-    local extend_decorator = require("luasnip.util.extend_decorator")
-    -- Create trigger transformation function
-    local function auto_semicolon(context)
-      if type(context) == "string" then
-        return { trig = ";" .. context }
-      end
-      return vim.tbl_extend("keep", { trig = ";" .. context.trig }, context)
-    end
-    -- Register and apply decorator properly
-    extend_decorator.register(ls.s, {
-      arg_indx = 1,
-      extend = function(original)
-        return auto_semicolon(original)
-      end,
-    })
-    local s = extend_decorator.apply(ls.s, {})
+		vim.keymap.set({ "i", "s" }, "<C-j>", function()
+			if ls.choice_active() then
+				ls.change_choice(1)
+			end
+		end)
 
-    -- local s = ls.snippet
-    local t = ls.text_node
-    local i = ls.insert_node
-    local f = ls.function_node
+		vim.keymap.set({ "i", "s" }, "<C-k>", function()
+			if ls.choice_active() then
+				ls.change_choice(-1)
+			end
+		end)
 
-    local function clipboard()
-      return vim.fn.getreg("+")
-    end
+		local s = ls.snippet
+		local c = ls.choice_node
+		local t = ls.text_node
+		local i = ls.insert_node
 
-    -- Check if the file exists before proceeding
-    -- Custom snippets
-    -- the "all" after ls.add_snippets("all" is the filetype, you can know a
-    -- file filetype with :set ft
-    -- Custom snippets
+		-- #####################################################################
+		--                            Markdown
+		-- #####################################################################
 
-    -- #####################################################################
-    --                            Markdown
-    -- #####################################################################
+		-- Helper function to create code block snippets
+		local function create_code_block_snippet(lang)
+			return s({
+				trig = lang,
+				name = "Codeblock",
+				desc = lang .. " codeblock",
+			}, {
+				t({ "```" .. lang, "" }),
+				i(1),
+				t({ "", "```" }),
+			})
+		end
 
-    -- Helper function to create code block snippets
-    local function create_code_block_snippet(lang)
-      return s({
-        trig = lang,
-        name = "Codeblock",
-        desc = lang .. " codeblock",
-      }, {
-        t({ "```" .. lang, "" }),
-        i(1),
-        t({ "", "```" }),
-      })
-    end
+		-- Define languages for code blocks
+		local languages = {
+			"txt",
+			"lua",
+			"sql",
+			"go",
+			"regex",
+			"bash",
+			"markdown",
+			"markdown_inline",
+			"yaml",
+			"json",
+			"jsonc",
+			"cpp",
+			"csv",
+			"java",
+			"javascript",
+			"python",
+			"dockerfile",
+			"html",
+			"css",
+			"templ",
+			"php",
+		}
 
-    -- Define languages for code blocks
-    local languages = {
-      "txt",
-      "lua",
-      "sql",
-      "go",
-      "regex",
-      "bash",
-      "markdown",
-      "markdown_inline",
-      "yaml",
-      "json",
-      "jsonc",
-      "cpp",
-      "csv",
-      "java",
-      "javascript",
-      "python",
-      "dockerfile",
-      "html",
-      "css",
-      "templ",
-      "php",
-    }
+		-- Generate snippets for all languages
+		local snippets = {}
 
-    -- Generate snippets for all languages
-    local snippets = {}
+		for _, lang in ipairs(languages) do
+			table.insert(snippets, create_code_block_snippet(lang))
+		end
 
-    for _, lang in ipairs(languages) do
-      table.insert(snippets, create_code_block_snippet(lang))
-    end
+		ls.add_snippets("markdown", snippets)
 
-    return opts
-  end,
+		-- #####################################################################
+		--                           PYTHON
+		-- #####################################################################
+
+		ls.add_snippets("python", {
+			s({
+				trig = "def",
+				name = "Function",
+				desc = "Python function",
+			}, {
+				t("def "),
+				i(1, "function_name"),
+				t("("),
+				i(2, "args"),
+				t({ "):", "\t" }),
+				i(0),
+			}),
+		})
+
+		ls.add_snippets("python", {
+			s({
+				trig = "log",
+				name = "Log",
+				desc = "logging log",
+			}, {
+				t("logging."),
+				c(1, {
+					t("debug"),
+					t("info"),
+					t("warning"),
+					t("error"),
+					t("exception"),
+					t("critical"),
+				}),
+				t("("),
+				i(2),
+				t(")"),
+			}),
+		})
+
+		return opts
+	end,
 }
