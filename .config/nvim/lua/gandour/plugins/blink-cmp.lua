@@ -33,9 +33,6 @@ return {
 			return true
 		end
 
-		opts.fuzzy = {
-			implementation = "lua",
-		}
 		-- NOTE: The new way to enable LuaSnip
 		-- Merge custom sources with the existing ones from lazyvim
 		-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
@@ -111,14 +108,15 @@ return {
 			},
 		}
 
-		-- opts.fuzzy = {
+		opts.fuzzy = {
+			implementation = "lua",
 		--   -- Disabling this matches the behavior of fzf
 		--   use_typo_resistance = false,
 		--   -- Frecency tracks the most recently/frequently used items and boosts the score of the item
 		--   use_frecency = true,
 		--   -- Proximity bonus boosts the score of items matching nearby words
 		--   use_proximity = false,
-		-- }
+		}
 
 		opts.snippets = {
 			preset = "luasnip", -- Choose LuaSnip as the snippet engine
