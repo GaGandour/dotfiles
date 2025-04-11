@@ -31,8 +31,8 @@ return {
 		local t = ls.text_node
 		local i = ls.insert_node
 
-        local extras = require("luasnip.extras")
-        local rep = extras.rep
+		local extras = require("luasnip.extras")
+		local rep = extras.rep
 
 		-- #####################################################################
 		--                            Markdown
@@ -133,8 +133,17 @@ return {
 			}, {
 				t("print("),
 				i(1),
-				t(")"),
-				t({ "", "logging.info(" }),
+				t({ ")", "" }),
+				t("logging."),
+				c(2, {
+					t("debug"),
+					t("info"),
+					t("warning"),
+					t("error"),
+					t("exception"),
+					t("critical"),
+				}),
+				t("("),
 				rep(1),
 				t(")"),
 			}),
