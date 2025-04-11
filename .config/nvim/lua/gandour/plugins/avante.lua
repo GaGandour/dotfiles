@@ -7,8 +7,8 @@ return {
 		-- for example
 		provider = "copilot",
 		windows = { ask = { start_insert = false }, edit = { border = "rounded" } },
-        -- Maps
-        vim.keymap.set("n", "<leader>ac", ":AvanteChat<CR>")
+		-- Maps
+		vim.keymap.set("n", "<leader>ac", ":AvanteChat<CR>"),
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	build = "make",
