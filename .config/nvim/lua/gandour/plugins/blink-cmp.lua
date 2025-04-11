@@ -98,12 +98,12 @@ return {
 
 		opts.completion = {
 			menu = {
-				border = "single",
+				border = "rounded",
 			},
 			documentation = {
 				auto_show = true,
 				window = {
-					border = "single",
+					border = "rounded",
 				},
 			},
 		}
