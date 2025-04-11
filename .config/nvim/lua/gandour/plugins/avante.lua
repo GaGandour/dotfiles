@@ -6,7 +6,14 @@ return {
 		-- add any opts here
 		-- for example
 		provider = "copilot",
-		windows = { ask = { start_insert = false }, edit = { border = "rounded" } },
+		windows = { 
+            edit = { border = "rounded" },
+            ask = {
+              floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+              start_insert = true, -- Start insert mode when opening the ask window
+              border = "rounded",
+            },
+        },
 		-- Maps
 		vim.keymap.set({ "n", "v" }, "<leader>ac", ":AvanteChat<CR>"),
 	},
