@@ -11,9 +11,6 @@
 -- https://github.com/saghen/blink.cmp
 -- Documentation site: https://cmp.saghen.dev/
 
--- NOTE: Specify the trigger character(s) used for luasnip
-local trigger_text = ";"
-
 return {
 	"saghen/blink.cmp",
 	dependencies = { "rafamadriz/friendly-snippets" },
