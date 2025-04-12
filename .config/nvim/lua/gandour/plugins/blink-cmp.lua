@@ -13,7 +13,7 @@
 
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = { "rafamadriz/friendly-snippets", "Kaiser-Yang/blink-cmp-avante" },
 	enabled = true,
 	opts = function(_, opts)
 		-- I noticed that telescope was extremeley slow and taking too long to open,
@@ -34,8 +34,15 @@ return {
 		-- Merge custom sources with the existing ones from lazyvim
 		-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
 		opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "avante" },
 			providers = {
+				avante = {
+					module = "blink-cmp-avante",
+					name = "Avante",
+					opts = {
+						-- options for blink-cmp-avante
+					},
+				},
 				lsp = {
 					name = "lsp",
 					enabled = true,
@@ -77,15 +84,6 @@ return {
 					module = "blink.cmp.sources.snippets",
 					score_offset = 85, -- the higher the number, the higher the priority
 				},
-				-- -- Third class citizen mf always talking shit
-				copilot = {
-					name = "copilot",
-					enabled = true,
-					module = "blink-cmp-copilot",
-					min_keyword_length = 6,
-					score_offset = -100, -- the higher the number, the higher the priority
-					async = true,
-				},
 			},
 		})
 
@@ -107,12 +105,12 @@ return {
 
 		opts.fuzzy = {
 			implementation = "lua",
-		--   -- Disabling this matches the behavior of fzf
-		--   use_typo_resistance = false,
-		--   -- Frecency tracks the most recently/frequently used items and boosts the score of the item
-		--   use_frecency = true,
-		--   -- Proximity bonus boosts the score of items matching nearby words
-		--   use_proximity = false,
+			--   -- Disabling this matches the behavior of fzf
+			--   use_typo_resistance = false,
+			--   -- Frecency tracks the most recently/frequently used items and boosts the score of the item
+			--   use_frecency = true,
+			--   -- Proximity bonus boosts the score of items matching nearby words
+			--   use_proximity = false,
 		}
 
 		opts.snippets = {
