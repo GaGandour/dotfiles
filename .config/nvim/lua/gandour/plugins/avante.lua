@@ -6,16 +6,22 @@ return {
 		-- add any opts here
 		-- for example
 		provider = "copilot",
-		windows = { 
-            edit = { border = "rounded" },
-            ask = {
-              floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-              start_insert = true, -- Start insert mode when opening the ask window
-              border = "rounded",
-            },
-        },
+		windows = {
+			edit = { border = "rounded" },
+			ask = {
+				floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+				start_insert = true, -- Start insert mode when opening the ask window
+				border = "rounded",
+			},
+		},
+		behaviour = {
+			auto_focus_sidebar = true,
+			auto_suggestions = false, -- Experimental stage
+			auto_suggestions_respect_ignore = false,
+			use_cwd_as_project_root = true,
+		},
 		-- Maps
-		vim.keymap.set({ "n", "v" }, "<leader>ac", ":AvanteChat<CR>"),
+		vim.keymap.set({ "n", "v" }, "<leader>ak", ":AvanteChat<CR>"),
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	build = "make",
