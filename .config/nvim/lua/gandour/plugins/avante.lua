@@ -5,7 +5,10 @@ return {
 	opts = {
 		-- add any opts here
 		-- for example
-		provider = "copilot",
+		provider = "ollama",
+		ollama = {
+			model = "qwen2.5:7b",
+		},
 		windows = {
 			edit = { border = "rounded" },
 			ask = {
@@ -19,6 +22,7 @@ return {
 			auto_suggestions = false, -- Experimental stage
 			auto_suggestions_respect_ignore = false,
 			use_cwd_as_project_root = true,
+			enable_cursor_planning_mode = true,
 		},
 		-- Maps
 		vim.keymap.set({ "n", "v" }, "<leader>ak", ":AvanteChat<CR>"),
