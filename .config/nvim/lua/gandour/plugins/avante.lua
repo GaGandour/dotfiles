@@ -7,7 +7,7 @@ return {
 		-- for example
 		provider = "ollama",
 		ollama = {
-			model = "qwen2.5:7b",
+			model = "gemma3:1b",
 		},
 		windows = {
 			edit = { border = "rounded" },
