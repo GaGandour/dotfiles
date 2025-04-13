@@ -22,7 +22,7 @@ return {
 			auto_suggestions = false, -- Experimental stage
 			auto_suggestions_respect_ignore = false,
 			use_cwd_as_project_root = true,
-			enable_cursor_planning_mode = true,
+			enable_cursor_planning_mode = false,
 		},
 		-- Maps
 		vim.keymap.set({ "n", "v" }, "<leader>ak", ":AvanteChat<CR>"),
