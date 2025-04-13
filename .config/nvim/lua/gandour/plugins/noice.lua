@@ -6,7 +6,15 @@ return {
 	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		-- "rcarriga/nvim-notify", -- this is optional
+		"rcarriga/nvim-notify", -- this is optional
+	},
+	keys = {
+		{
+			"<leader>nd",
+			"<cmd>Noice dismiss<CR>",
+			desc = "Dismiss all notifications",
+			mode = { "n" },
+		},
 	},
 	config = function()
 		require("noice").setup({
