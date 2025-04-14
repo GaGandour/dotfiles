@@ -1,0 +1,7 @@
+font-family = JetBrainsMono NFM Regular
+font-size = 16
+
+
+theme = catppuccin-frappe
+# window-decoration = none
+macos-titlebar-style = hidden
