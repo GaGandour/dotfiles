@@ -12,6 +12,7 @@ return {
 				python = { "isort", "black" },
 				clojure = { "joker" },
 				cpp = { "my_c_formatter" },
+				tf = { "tflint" },
 			},
 			-- format_on_save = {
 			--     lsp_fallback = true,

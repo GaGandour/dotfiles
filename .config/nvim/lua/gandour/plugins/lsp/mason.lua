@@ -36,6 +36,7 @@ return {
                 "gopls",
                 "clangd",
                 "clojure_lsp",
+                "terraformls",
             },
             -- auto-install configured servers with lspconfig
             automatic_installation = true, -- not the same as ensure_installed
@@ -50,6 +51,7 @@ return {
                 "pylint", -- python linter
                 "joker", -- clojure linter and formatter
                 "clang-format", -- C/C++ formatter
+                "tflint", -- terraform linter
             },
         })
     end,
