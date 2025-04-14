@@ -34,6 +34,7 @@ return {
                 "ruff",
                 "jedi_language_server",
                 "gopls",
+                "buf_ls",
                 "clangd",
                 "clojure_lsp",
                 "terraformls",
@@ -52,6 +53,7 @@ return {
                 "joker", -- clojure linter and formatter
                 "clang-format", -- C/C++ formatter
                 "tflint", -- terraform linter
+                "buf_ls", -- protobuf linter
             },
         })
     end,
