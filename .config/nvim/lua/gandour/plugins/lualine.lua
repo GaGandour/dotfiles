@@ -53,7 +53,7 @@ return {
 		lualine.setup({
 			options = {
 				-- theme = my_lualine_theme,
-				theme = "catpuccin-latte",
+				theme = "catppuccin-frappe",
 			},
 			sections = {
 				lualine_x = {
