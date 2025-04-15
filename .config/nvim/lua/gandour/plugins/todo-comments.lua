@@ -1,11 +1,10 @@
 return {
 	"folke/todo-comments.nvim",
-	optional = true,
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
-        require("todo-comments").setup()
-    end,
+	config = function()
+		require("todo-comments").setup()
+	end,
 	keys = {
 		{
 			"<leader>ft",

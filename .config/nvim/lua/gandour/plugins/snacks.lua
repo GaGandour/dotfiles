@@ -231,5 +231,12 @@ return {
 			end,
 			desc = "Buffer Diagnostics",
 		},
+		{
+			"<leader>D",
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			desc = "Diagnostics",
+		},
 	},
 }
