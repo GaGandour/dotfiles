@@ -49,7 +49,7 @@ return {
 						min_width = 40,
 						height = 0,
 						position = "left",
-						border = "none",
+						border = "rounded",
 						box = "vertical",
 						{
 							win = "input",
@@ -59,7 +59,7 @@ return {
 							title_pos = "center",
 						},
 						{ win = "list", border = "none" },
-						{ win = "preview", title = "{preview}", height = 0.4, border = "top" },
+						{ win = "preview", title = "{preview}", height = 0.4, border = "rounded" },
 					},
 				},
 			},
@@ -71,7 +71,7 @@ return {
 					keys = {
 						-- to close the picker on ESC instead of going to normal mode,
 						-- add the following keymap to your config
-						["<Esc>"] = { "close", mode = { "n", "i" } },
+						-- ["<Esc>"] = { "close", mode = { "n", "i" } },
 						-- I'm used to scrolling like this in LazyGit
 						-- ["J"] = { "preview_scroll_down", mode = { "i", "n" } },
 						-- ["K"] = { "preview_scroll_up", mode = { "i", "n" } },
