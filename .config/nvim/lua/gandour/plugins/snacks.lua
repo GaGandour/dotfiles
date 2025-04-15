@@ -140,16 +140,10 @@ return {
 					on_show = function()
 						vim.cmd.stopinsert()
 					end,
-					finder = "buffers",
-					format = "buffer",
-					hidden = true,
-					unloaded = false,
-					current = true,
-					sort_lastused = true,
 					win = {
 						input = {
 							keys = {
-								["d"] = "bufdelete",
+								["d"] = { "bufdelete", mode = { "n" } },
 							},
 						},
 						list = { keys = { ["d"] = "bufdelete" } },
