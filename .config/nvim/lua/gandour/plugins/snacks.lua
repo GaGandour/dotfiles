@@ -154,20 +154,27 @@ return {
 			end,
 			desc = "[f]Snacks picker [b]uffers",
 		},
-        -- Find marks
-        {
-            "<leader>fm",
-            function()
-                Snacks.picker.marks({
-                    layout = "vertical",
+		{
+			"<leader>fr",
+			function()
+				Snacks.picker.recent()
+			end,
+			desc = "Recent",
+		},
+		-- Find marks
+		{
+			"<leader>fm",
+			function()
+				Snacks.picker.marks({
+					layout = "vertical",
 					on_show = function()
 						vim.cmd.stopinsert()
 					end,
-                })
-            end,
-            desc = "Find Marks",
-        },
-        -- Find strings
+				})
+			end,
+			desc = "Find Marks",
+		},
+		-- Find strings
 		{
 			"<leader>fs",
 			function()
@@ -182,6 +189,9 @@ return {
 			function()
 				Snacks.picker.grep_word({
 					hidden = true,
+					on_show = function()
+						vim.cmd.stopinsert()
+					end,
 				})
 			end,
 			desc = "Visual selection or word",
