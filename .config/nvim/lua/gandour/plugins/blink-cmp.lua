@@ -12,133 +12,160 @@
 -- Documentation site: https://cmp.saghen.dev/
 
 return {
-	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets", "Kaiser-Yang/blink-cmp-avante" },
-	enabled = true,
-	opts = function(_, opts)
-		-- I noticed that telescope was extremeley slow and taking too long to open,
-		-- assumed related to blink, so disabled blink and in fact it was related
-		-- :lua print(vim.bo[0].filetype)
-		-- So I'm disabling blink.cmp for Telescope
-		opts.enabled = function()
-			-- Get the current buffer's filetype
-			local filetype = vim.bo[0].filetype
-			-- Disable for Telescope buffers
-			if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
-				return false
+	{
+		"saghen/blink.compat",
+	},
+	{
+		"saghen/blink.cmp",
+		dependencies = { "rafamadriz/friendly-snippets", "Kaiser-Yang/blink-cmp-avante", "epwalsh/obsidian.nvim", "saghen/blink.compat" },
+		opts_extend = { "sources.completion.enabled_providers" },
+		enabled = true,
+		opts = function(_, opts)
+			-- I noticed that telescope was extremeley slow and taking too long to open,
+			-- assumed related to blink, so disabled blink and in fact it was related
+			-- :lua print(vim.bo[0].filetype)
+			-- So I'm disabling blink.cmp for Telescope
+			opts.enabled = function()
+				-- Get the current buffer's filetype
+				local filetype = vim.bo[0].filetype
+				-- Disable for Telescope buffers
+				if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
+					return false
+				end
+				return true
 			end
-			return true
-		end
 
-		-- NOTE: The new way to enable LuaSnip
-		-- Merge custom sources with the existing ones from lazyvim
-		-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
-		opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-			default = { "lsp", "path", "snippets", "buffer", "avante" },
-			providers = {
-				avante = {
-					module = "blink-cmp-avante",
-					name = "Avante",
-					opts = {
-						-- options for blink-cmp-avante
+			-- NOTE: The new way to enable LuaSnip
+			-- Merge custom sources with the existing ones from lazyvim
+			-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
+			opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
+				default = {
+					"lsp",
+					"path",
+					"snippets",
+					"buffer",
+					"avante",
+					"obsidian",
+					"obsidian_new",
+					"obsidian_tags",
+				},
+				providers = {
+					avante = {
+						module = "blink-cmp-avante",
+						name = "Avante",
+						opts = {
+							-- options for blink-cmp-avante
+						},
+					},
+					lsp = {
+						name = "lsp",
+						enabled = true,
+						module = "blink.cmp.sources.lsp",
+						min_keyword_length = 0,
+						score_offset = 90, -- the higher the number, the higher the priority
+					},
+					path = {
+						name = "Path",
+						module = "blink.cmp.sources.path",
+						score_offset = 25,
+						-- When typing a path, I would get snippets and text in the
+						-- suggestions, I want those to show only if there are no path
+						-- suggestions
+						fallbacks = { "snippets", "buffer" },
+						-- min_keyword_length = 2,
+						opts = {
+							trailing_slash = true,
+							label_trailing_slash = true,
+							get_cwd = function(context)
+								return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
+							end,
+							show_hidden_files_by_default = true,
+						},
+					},
+					buffer = {
+						name = "Buffer",
+						enabled = true,
+						max_items = 3,
+						module = "blink.cmp.sources.buffer",
+						min_keyword_length = 2,
+						score_offset = 15, -- the higher the number, the higher the priority
+					},
+					snippets = {
+						name = "snippets",
+						enabled = true,
+						max_items = 15,
+						min_keyword_length = 2,
+						module = "blink.cmp.sources.snippets",
+						score_offset = 85, -- the higher the number, the higher the priority
+					},
+					obsidian = {
+						name = "obsidian",
+						module = "blink.compat.source",
+					},
+					obsidian_new = {
+						name = "obsidian_new",
+						module = "blink.compat.source",
+					},
+					obsidian_tags = {
+						name = "obsidian_tags",
+						module = "blink.compat.source",
 					},
 				},
-				lsp = {
-					name = "lsp",
-					enabled = true,
-					module = "blink.cmp.sources.lsp",
-					min_keyword_length = 0,
-					score_offset = 90, -- the higher the number, the higher the priority
-				},
-				path = {
-					name = "Path",
-					module = "blink.cmp.sources.path",
-					score_offset = 25,
-					-- When typing a path, I would get snippets and text in the
-					-- suggestions, I want those to show only if there are no path
-					-- suggestions
-					fallbacks = { "snippets", "buffer" },
-					-- min_keyword_length = 2,
-					opts = {
-						trailing_slash = true,
-						label_trailing_slash = true,
-						get_cwd = function(context)
-							return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
-						end,
-						show_hidden_files_by_default = true,
-					},
-				},
-				buffer = {
-					name = "Buffer",
-					enabled = true,
-					max_items = 3,
-					module = "blink.cmp.sources.buffer",
-					min_keyword_length = 2,
-					score_offset = 15, -- the higher the number, the higher the priority
-				},
-				snippets = {
-					name = "snippets",
-					enabled = true,
-					max_items = 15,
-					min_keyword_length = 2,
-					module = "blink.cmp.sources.snippets",
-					score_offset = 85, -- the higher the number, the higher the priority
-				},
-			},
-		})
+			})
 
-		opts.cmdline = {
-			enabled = true,
-		}
+			opts.cmdline = {
+				enabled = true,
+			}
 
-		opts.completion = {
-			menu = {
-				border = "rounded",
-			},
-			documentation = {
-				auto_show = true,
-				window = {
+			opts.completion = {
+				menu = {
 					border = "rounded",
 				},
-			},
-		}
+				documentation = {
+					auto_show = true,
+					window = {
+						border = "rounded",
+					},
+				},
+			}
 
-		opts.fuzzy = {
-			implementation = "lua",
-			--   -- Disabling this matches the behavior of fzf
-			--   use_typo_resistance = false,
-			--   -- Frecency tracks the most recently/frequently used items and boosts the score of the item
-			--   use_frecency = true,
-			--   -- Proximity bonus boosts the score of items matching nearby words
-			--   use_proximity = false,
-		}
+			opts.fuzzy = {
+				implementation = "lua",
+				--   -- Disabling this matches the behavior of fzf
+				--   use_typo_resistance = false,
+				--   -- Frecency tracks the most recently/frequently used items and boosts the score of the item
+				--   use_frecency = true,
+				--   -- Proximity bonus boosts the score of items matching nearby words
+				--   use_proximity = false,
+			}
 
-		opts.snippets = {
-			preset = "luasnip", -- Choose LuaSnip as the snippet engine
-		}
+			opts.snippets = {
+				preset = "luasnip", -- Choose LuaSnip as the snippet engine
+			}
 
-		-- The default preset used by lazyvim accepts completions with enter
-		-- I don't like using enter because if on markdown and typing
-		-- something, but you want to go to the line below, if you press enter,
-		-- the completion will be accepted
-		-- https://cmp.saghen.dev/configuration/keymap.html#default
-		opts.keymap = {
-			preset = "default",
-			["<Tab>"] = { "snippet_forward", "fallback" },
-			["<S-Tab>"] = { "snippet_backward", "fallback" },
+			-- The default preset used by lazyvim accepts completions with enter
+			-- I don't like using enter because if on markdown and typing
+			-- something, but you want to go to the line below, if you press enter,
+			-- the completion will be accepted
+			-- https://cmp.saghen.dev/configuration/keymap.html#default
+			opts.keymap = {
+				preset = "default",
+				["<Tab>"] = { "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
 
-			["<Up>"] = { "select_prev", "fallback" },
-			["<Down>"] = { "select_next", "fallback" },
-			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-j>"] = { "select_next", "fallback" },
+				["<Up>"] = { "select_prev", "fallback" },
+				["<Down>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
 
-			["<S-k>"] = { "scroll_documentation_up", "fallback" },
-			["<S-j>"] = { "scroll_documentation_down", "fallback" },
+				["<S-k>"] = { "scroll_documentation_up", "fallback" },
+				["<S-j>"] = { "scroll_documentation_down", "fallback" },
 
-			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-			["<C-e>"] = { "hide", "fallback" },
-		}
+				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = { "hide", "fallback" },
+			}
 
-		return opts
-	end,
+			return opts
+		end,
+	},
 }

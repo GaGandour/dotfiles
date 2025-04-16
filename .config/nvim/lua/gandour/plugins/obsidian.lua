@@ -21,6 +21,9 @@ return {
 		-- see below for full list of optional dependencies 👇
 	},
 	opts = {
+		completion = {
+			nvim_cmp = false,
+		},
 		workspaces = {
 			{
 				name = "personal",
@@ -42,4 +45,13 @@ return {
 			time_format = "%H:%M",
 		},
 	},
+	config = function(_, opts)
+		require("obsidian").setup(opts)
+
+		-- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+		local cmp = require("cmp")
+		cmp.register_source("obsidian", require("cmp_obsidian").new())
+		cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
+		cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+	end,
 }
