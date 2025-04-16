@@ -1,8 +1,7 @@
 return {
-	"epwalsh/obsidian.nvim",
+	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
 	lazy = true,
-	-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
 	event = {
 		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
 		-- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
@@ -23,6 +22,7 @@ return {
 	opts = {
 		completion = {
 			nvim_cmp = false,
+			blink = true,
 		},
 		workspaces = {
 			{
@@ -41,8 +41,11 @@ return {
 		-- see below for full list of options 👇
 		templates = {
 			folder = "Templates",
-			date_format = "%Y-%m-%d-%a",
+			date_format = "%Y-%m-%d (%a)",
 			time_format = "%H:%M",
+		},
+		picker = {
+			name = "snacks.pick",
 		},
 		daily_notes = {
 			-- Optional, if you keep daily notes in a separate directory.
@@ -60,10 +63,54 @@ return {
 	config = function(_, opts)
 		require("obsidian").setup(opts)
 
-		-- HACK: fix error, disable completion.nvim_cmp option, manually register sources
-		local cmp = require("cmp")
-		cmp.register_source("obsidian", require("cmp_obsidian").new())
-		cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
-		cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+		local function create_obsidian_project(project_name)
+			local project_path = "./Projects/" .. project_name
+
+			-- Check if the project directory already exists
+			if vim.fn.isdirectory(project_path) == 1 then
+				error("Project '" .. project_name .. "' already exists in Projects/")
+			end
+
+			-- Create the project directory
+			vim.fn.mkdir(project_path, "p")
+
+			-- Create the files within the project directory
+			local file = ""
+			local file_path = ""
+
+			file = "about"
+			file_path = project_path .. "/" .. file
+			vim.cmd("ObsidianNewFromTemplate" .. file_path .. "project-about.md")
+			vim.cmd("w")
+
+			file = "log"
+			file_path = project_path .. "/" .. file
+			vim.cmd("ObsidianNewFromTemplate " .. file_path .. "project-log.md")
+			vim.cmd("w")
+
+			file = "tasks"
+			file_path = project_path .. "/" .. file
+			vim.cmd("ObsidianNewFromTemplate " .. file_path .. "project-tasks.md")
+			vim.cmd("w")
+
+			print("Project '" .. project_name .. "' created successfully in Projects/")
+		end
+
+		-- Register the command in Neovim
+		vim.api.nvim_create_user_command("ObsidianCreateProject", function(loc_opts)
+			create_obsidian_project(loc_opts.args)
+		end, { nargs = 1 })
 	end,
+	keys = {
+		{
+			"<localleader>t",
+			"<cmd>lua vim.api.nvim_put({os.date('%Y-%m-%d (%a)')}, '', false, true)<cr>",
+			desc = "Insert current date",
+		},
+		{
+			"<localleader>n",
+			"<cmd>lua vim.api.nvim_put({os.date('%H:%M')}, '', false, true)<cr>",
+			desc = "Insert current time",
+		},
+	},
 }

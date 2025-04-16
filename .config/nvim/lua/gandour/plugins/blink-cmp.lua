@@ -13,12 +13,11 @@
 
 return {
 	{
-		"saghen/blink.compat",
-	},
-	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets", "Kaiser-Yang/blink-cmp-avante", "epwalsh/obsidian.nvim", "saghen/blink.compat" },
-		opts_extend = { "sources.completion.enabled_providers" },
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"Kaiser-Yang/blink-cmp-avante",
+		},
 		enabled = true,
 		opts = function(_, opts)
 			-- I noticed that telescope was extremeley slow and taking too long to open,
@@ -45,9 +44,6 @@ return {
 					"snippets",
 					"buffer",
 					"avante",
-					"obsidian",
-					"obsidian_new",
-					"obsidian_tags",
 				},
 				providers = {
 					avante = {
@@ -97,18 +93,6 @@ return {
 						min_keyword_length = 2,
 						module = "blink.cmp.sources.snippets",
 						score_offset = 85, -- the higher the number, the higher the priority
-					},
-					obsidian = {
-						name = "obsidian",
-						module = "blink.compat.source",
-					},
-					obsidian_new = {
-						name = "obsidian_new",
-						module = "blink.compat.source",
-					},
-					obsidian_tags = {
-						name = "obsidian_tags",
-						module = "blink.compat.source",
 					},
 				},
 			})
