@@ -63,72 +63,42 @@ return {
 	config = function(_, opts)
 		require("obsidian").setup(opts)
 
-		local function create_obsidian_note_from_template(note_dir, note_title, template_name, client)
-			local note
-			note = client:create_note({ title = note_title, dir = note_dir, no_write = true })
-			print("OK 1")
+		local function create_obsidian_note_from_template(note_dir, project_name, note_title, template_name, client)
+			local note = nil
+			note = client:create_note({
+				title = note_title,
+				dir = note_dir,
+				template = template_name,
+			})
 			-- Open the note in a new buffer.
 			client:open_note(note, { sync = true })
-			print("OK 2")
-
-			client:write_note_to_buffer(note, { template = template_name })
-			print("OK 3")
 		end
 
-		-- local function create_obsidian_project(project_name)
-		-- 	local project_path = vim.fn.getcwd(-1) .. "/Projects/" .. project_name
-		--
-		-- 	-- Check if the project directory already exists
-		-- 	if vim.fn.isdirectory(project_path) == 1 then
-		-- 		error("Project '" .. project_name .. "' already exists in Projects/")
-		-- 	end
-		--
-		-- 	-- Create the project directory
-		-- 	vim.fn.mkdir(project_path, "p")
-		--
-		-- 	local note_title = ""
-		--
-		-- 	local client = require("obsidian.client")
-		-- 	-- client.opts = {}
-		--
-		-- 	note_title = string.lower(project_name) -- .. "-about"
-		--
-		-- 	local note = require("obsidian.note")
-  --           local util = require("obsidian.util")
-		-- 	local obsidian = require("obsidian")
-		-- 	note.new(
-  --               util.zettel_id(),
-		-- 		note_title,
-		-- 		project_path,
-		-- 		"project-about.md",
-		-- 	)--:next(function(n)
-		-- 	-- 	obsidian.util.open_note(n)
-		-- 	-- end)
-		-- 	print("OK")
-		-- 	-- Open the note in a new buffer.
-		-- 	client:open_note(note, { sync = true })
-		-- 	print("OK 2")
-		-- 	vim.cmd("w")
-		--
-		-- 	-- file = "log"
-		-- 	-- file_path = project_path .. "/" .. string.lower(project_name) .. "-log"
-		-- 	-- vim.cmd("ObsidianNewFromTemplate " .. file_path .. "-log <CR>project-log")
-		-- 	-- create_obsidian_note_from_template(project_path, note_title, "project-log", client)
-		-- 	-- vim.cmd("w")
-		--
-		-- 	-- file = "tasks"
-		-- 	-- file_path = project_path .. "/" .. string.lower(project_name) .. "-tasks"
-		-- 	-- vim.cmd("ObsidianNewFromTemplate " .. file_path .. "-tasks <CR>project-tasks")
-		-- 	-- create_obsidian_note_from_template(project_path, note_title, "project-tasks", client)
-		-- 	-- vim.cmd("w")
-		--
-		-- 	print("Project '" .. project_name .. "' created successfully in Projects/")
-		-- end
+		local function create_obsidian_project(project_name)
+			local project_path = vim.fn.getcwd(-1) .. "/Projects/" .. project_name .. "/"
+
+			-- Check if the project directory already exists
+			if vim.fn.isdirectory(project_path) == 1 then
+				error("Project '" .. project_name .. "' already exists in Projects/")
+			end
+
+			-- Create the project directory
+			vim.fn.mkdir(project_path, "p")
+
+			local client = require("obsidian").get_client()
+
+			local note_title_prefix = string.lower(project_name)
+			create_obsidian_note_from_template(project_path, project_name, note_title_prefix .. "-log", "project-log.md", client)
+			create_obsidian_note_from_template(project_path, project_name, note_title_prefix .. "-tasks", "project-tasks.md", client)
+			create_obsidian_note_from_template(project_path, project_name, note_title_prefix .. "-about", "project-about.md", client)
+
+			print("Project '" .. project_name .. "' created successfully in Projects/")
+		end
 
 		-- Register the command in Neovim
-		-- vim.api.nvim_create_user_command("ObsidianCreateProject", function(loc_opts)
-		-- 	create_obsidian_project(loc_opts.args)
-		-- end, { nargs = 1 })
+		vim.api.nvim_create_user_command("ObsidianCreateProject", function(loc_opts)
+			create_obsidian_project(loc_opts.args)
+		end, { nargs = 1 })
 	end,
 	keys = {
 		{
