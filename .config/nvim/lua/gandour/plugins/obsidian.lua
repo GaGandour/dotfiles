@@ -69,6 +69,7 @@ return {
 				title = note_title,
 				dir = note_dir,
 				template = template_name,
+				tags = { project_name },
 			})
 			-- Open the note in a new buffer.
 			client:open_note(note, { sync = true })
@@ -88,9 +89,27 @@ return {
 			local client = require("obsidian").get_client()
 
 			local note_title_prefix = string.lower(project_name)
-			create_obsidian_note_from_template(project_path, project_name, note_title_prefix .. "-log", "project-log.md", client)
-			create_obsidian_note_from_template(project_path, project_name, note_title_prefix .. "-tasks", "project-tasks.md", client)
-			create_obsidian_note_from_template(project_path, project_name, note_title_prefix .. "-about", "project-about.md", client)
+			create_obsidian_note_from_template(
+				project_path,
+				project_name,
+				note_title_prefix .. "-log",
+				"project-log.md",
+				client
+			)
+			create_obsidian_note_from_template(
+				project_path,
+				project_name,
+				note_title_prefix .. "-tasks",
+				"project-tasks.md",
+				client
+			)
+			create_obsidian_note_from_template(
+				project_path,
+				project_name,
+				note_title_prefix .. "-about",
+				"project-about.md",
+				client
+			)
 
 			print("Project '" .. project_name .. "' created successfully in Projects/")
 		end
