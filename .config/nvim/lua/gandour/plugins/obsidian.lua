@@ -122,12 +122,12 @@ return {
 	keys = {
 		{
 			"<localleader>t",
-			"<cmd>lua vim.api.nvim_put({os.date('%Y-%m-%d (%a)')}, '', false, true)<cr>",
+			"<cmd>lua vim.api.nvim_put({os.date('%Y-%m-%d (%a)')}, '', true, true)<cr>",
 			desc = "Insert current date",
 		},
 		{
 			"<localleader>n",
-			"<cmd>lua vim.api.nvim_put({os.date('%H:%M')}, '', false, true)<cr>",
+			"<cmd>lua vim.api.nvim_put({os.date('%H:%M')}, '', true, true)<cr>",
 			desc = "Insert current time",
 		},
 	},
