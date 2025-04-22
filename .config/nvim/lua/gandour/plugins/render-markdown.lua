@@ -24,28 +24,8 @@ return {
 				-- Additional modes to render checkboxes.
 				render_modes = false,
 				-- Padding to add to the right of checkboxes.
-				right_pad = 5,
+				right_pad = 0,
 			},
 		})
 	end,
 }
--- For `plugins/markview.lua` users.
--- return {
--- 	"OXY2DEV/markview.nvim",
--- 	lazy = false,
---
--- 	-- For blink.cmp's completion source
--- 	dependencies = {
--- 		"saghen/blink.cmp",
--- 		"catppuccin/nvim",
--- 	},
---
--- 	config = function()
--- 		require("markview").setup({
--- 			preview = {
--- 				icon_provider = "devicons",
--- 				filetypes = { "md", "rmd", "quarto" },
--- 			},
--- 		})
--- 	end,
--- }
