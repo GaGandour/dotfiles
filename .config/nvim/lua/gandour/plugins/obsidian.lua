@@ -37,6 +37,11 @@ return {
 
 		ui = {
 			enable = false,
+			checkboxes = {
+				-- I want only done/not done options to be available.
+				[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+				["x"] = { char = "", hl_group = "ObsidianDone" },
+			},
 		},
 		-- see below for full list of options 👇
 		templates = {
