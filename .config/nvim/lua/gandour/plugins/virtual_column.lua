@@ -5,9 +5,18 @@ return {
 		virtcolumn = "120",
 		highlight = { "Question" },
 		exclude = {
-			{
-				filetypes = { "markdown", "neorg" },
+			filetypes = {
+				"markdown",
+				"neorg",
+				"lspinfo",
+				"packer",
+				"checkhealth",
+				"help",
+				"man",
+				"TelescopePrompt",
+				"TelescopeResults",
 			},
+			buftypes = { "nofile", "quickfix", "terminal", "prompt" },
 		},
 	},
 }
