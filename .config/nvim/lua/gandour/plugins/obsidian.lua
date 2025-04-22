@@ -49,7 +49,7 @@ return {
 		},
 		daily_notes = {
 			-- Optional, if you keep daily notes in a separate directory.
-			folder = "Notes/dailies",
+			folder = "5.Dailies",
 			-- Optional, if you want to change the date format for the ID of daily notes.
 			date_format = "%Y-%m-%d",
 			-- Optional, if you want to change the date format of the default alias of daily notes.
@@ -76,7 +76,7 @@ return {
 		end
 
 		local function create_obsidian_project(project_name)
-			local project_path = vim.fn.getcwd(-1) .. "/Projects/" .. project_name .. "/"
+			local project_path = vim.fn.getcwd(-1) .. "/1.Projects/" .. project_name .. "/"
 
 			-- Check if the project directory already exists
 			if vim.fn.isdirectory(project_path) == 1 then
