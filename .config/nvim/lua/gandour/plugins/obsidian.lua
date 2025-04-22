@@ -64,6 +64,22 @@ return {
 			-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
 			template = nil,
 		},
+		note_id_func = function(title)
+			-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+			-- In this case a note with the title 'My new note' will be given an ID that looks
+			-- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+			local suffix = ""
+			if title ~= nil then
+				-- If title is given, transform it into valid file name.
+				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+			else
+				-- If title is nil, just add 4 random uppercase letters to the suffix.
+				for _ = 1, 4 do
+					suffix = suffix .. string.char(math.random(65, 90))
+				end
+			end
+			return tostring(os.time()) .. "-" .. suffix
+		end,
 	},
 	config = function(_, opts)
 		require("obsidian").setup(opts)
@@ -93,25 +109,24 @@ return {
 
 			local client = require("obsidian").get_client()
 
-			local note_title_prefix = string.lower(project_name)
 			create_obsidian_note_from_template(
 				project_path,
 				project_name,
-				note_title_prefix .. "-log",
+				project_name .. "-log",
 				"project-log.md",
 				client
 			)
 			create_obsidian_note_from_template(
 				project_path,
 				project_name,
-				note_title_prefix .. "-tasks",
+				project_name .. "-tasks",
 				"project-tasks.md",
 				client
 			)
 			create_obsidian_note_from_template(
 				project_path,
 				project_name,
-				note_title_prefix .. "-about",
+				project_name .. "-about",
 				"project-about.md",
 				client
 			)
