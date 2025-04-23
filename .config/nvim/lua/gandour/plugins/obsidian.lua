@@ -16,8 +16,6 @@ return {
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
-
-		-- see below for full list of optional dependencies 👇
 	},
 	opts = {
 		completion = {
@@ -141,13 +139,15 @@ return {
 	end,
 	keys = {
 		{
-			"<localleader>t",
+			"<C-h>",
 			"<cmd>lua vim.api.nvim_put({os.date('%Y-%m-%d (%a)')}, '', true, true)<cr>",
+			mode = "i",
 			desc = "Insert current date",
 		},
 		{
-			"<localleader>n",
+			"<C-a>",
 			"<cmd>lua vim.api.nvim_put({os.date('%H:%M')}, '', true, true)<cr>",
+			mode = "i",
 			desc = "Insert current time",
 		},
 	},
