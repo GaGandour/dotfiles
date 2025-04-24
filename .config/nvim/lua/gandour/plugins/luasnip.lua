@@ -85,6 +85,19 @@ return {
 
 		ls.add_snippets("markdown", snippets)
 
+		ls.add_snippets("markdown", {
+			s({
+				trig = "vers",
+				name = "Versículo",
+				desc = "Referência a versículo",
+			}, {
+				t("> **"),
+				i(1, "referência"),
+				t({ "**", ">", "> " }),
+				i(2, "texto"),
+			}),
+		})
+
 		-- #####################################################################
 		--                           PYTHON
 		-- #####################################################################
