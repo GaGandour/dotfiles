@@ -16,7 +16,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 opt.wrap = false -- disable line wrapping
 
 vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = { '*.md' , '*.tex', '*.txt', '*.norg' },
+    pattern = {  '*.tex', '*.txt', '*.norg' },
     command = 'setlocal wrap'
 })
 
