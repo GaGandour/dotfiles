@@ -155,3 +155,9 @@ Then, reference the `.zshrc_suffix` file in your `.zshrc` file:
 ```bash
 echo "source ~/.zshrc_suffix" >> ~/.zshrc
 ```
+
+### FZF
+still needs to be documented
+```bash
+brew install fzf
+```
