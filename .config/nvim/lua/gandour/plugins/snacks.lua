@@ -235,14 +235,14 @@ return {
 			desc = "Goto T[y]pe Definition",
 		},
 		{
-			"<leader>d",
+			"<leader>fd",
 			function()
 				Snacks.picker.diagnostics_buffer()
 			end,
 			desc = "Buffer Diagnostics",
 		},
 		{
-			"<leader>D",
+			"<leader>fD",
 			function()
 				Snacks.picker.diagnostics()
 			end,

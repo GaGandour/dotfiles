@@ -54,6 +54,7 @@ return {
                 "clang-format", -- C/C++ formatter
                 "tflint", -- terraform linter
                 "buf_ls", -- protobuf linter
+                "debugpy", -- python debugger
             },
         })
     end,
