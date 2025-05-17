@@ -9,6 +9,9 @@ return {
 		ollama = {
 			model = "gemma3:1b",
 		},
+		copilot = {
+			model = "claude-3.7-sonnet",
+		},
 		windows = {
 			edit = { border = "rounded" },
 			ask = {
