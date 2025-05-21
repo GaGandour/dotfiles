@@ -14,6 +14,15 @@ return {
 				section_separators = "",
 			},
 			sections = {
+				-- lualine_a = { "mode" }, -- default
+				lualine_b = { "diff", "diagnostics" }, -- removed git branch, as this can be viewed in lazy git
+				lualine_c = {
+					{
+						"filename",
+						path = 1,
+						-- shorting_target = 40, -- Shortens the path to keep statusline ≤ 40 chars
+					},
+				},
 				lualine_x = {
 					-- {
 					-- 	lazy_status.updates,
