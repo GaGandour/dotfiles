@@ -1,0 +1,110 @@
+return {
+	-- {
+	-- 	"olimorris/codecompanion.nvim",
+	-- 	opts = {},
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"ravitemer/mcphub.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		require("codecompanion").setup({
+	-- 			extensions = {
+	-- 				mcphub = {
+	-- 					callback = "mcphub.extensions.codecompanion",
+	-- 					opts = {
+	-- 						make_vars = true,
+	-- 						make_slash_commands = true,
+	-- 						show_result_in_chat = true,
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 			adapters = {
+	-- 				copilot = function()
+	-- 					return require("codecompanion.adapters").extend("copilot", {
+	-- 						schema = {
+	-- 							model = {
+	-- 								default = "claude-3.7-sonnet",
+	-- 							},
+	-- 						},
+	-- 					})
+	-- 				end,
+	-- 				ollama = function()
+	-- 					return require("codecompanion.adapters").extend("ollama", {
+	-- 						schema = {
+	-- 							model = {
+	-- 								-- default = "gemma3:4b",
+	-- 								-- default = "qwen2.5-coder:7b",
+	-- 								-- default = "qwen3:8b",
+	-- 								default = "codellama:7b-instruct",
+	-- 							},
+	-- 							num_ctx = {
+	-- 								default = 16000,
+	-- 							},
+	-- 						},
+	-- 					})
+	-- 				end,
+	-- 			},
+	-- 			strategies = {
+	-- 				chat = { adapter = "copilot" },
+	-- 				inline = { adapter = "copilot" },
+	-- 			},
+	-- 			display = {
+	-- 				chat = {
+	-- 					-- Change the default icons
+	-- 					icons = {
+	-- 						pinned_buffer = " ",
+	-- 						watched_buffer = "👀 ",
+	-- 					},
+	--
+	-- 					-- Options to customize the UI of the chat buffer
+	-- 					window = {
+	-- 						layout = "vertical", -- float|vertical|horizontal|buffer
+	-- 						position = nil, -- left|right|top|bottom (nil will default depending on vim.opt.splitright|vim.opt.splitbelow)
+	-- 						border = "rounded",
+	-- 						height = 0.8,
+	-- 						width = 0.25,
+	-- 						relative = "editor",
+	-- 						full_height = true, -- when set to false, vsplit will be used to open the chat buffer vs. botright/topleft vsplit
+	-- 						opts = {
+	-- 							breakindent = true,
+	-- 							cursorcolumn = false,
+	-- 							cursorline = false,
+	-- 							foldcolumn = "0",
+	-- 							linebreak = true,
+	-- 							list = false,
+	-- 							numberwidth = 1,
+	-- 							signcolumn = "no",
+	-- 							spell = false,
+	-- 							wrap = true,
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		})
+	--
+	-- 		-- keymaps
+	-- 		vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+	-- 		vim.keymap.set(
+	-- 			{ "n", "v" },
+	-- 			"<leader>a",
+	-- 			"<cmd>CodeCompanionChat Toggle<cr>",
+	-- 			{ noremap = true, silent = true }
+	-- 		)
+	-- 		vim.keymap.set("v", "ca", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+	--
+	-- 		-- Expand 'cc' into 'CodeCompanion' in the command line
+	-- 		vim.cmd([[cab cc CodeCompanion]])
+	-- 	end,
+	-- },
+	-- {
+	-- 	"echasnovski/mini.diff",
+	-- 	config = function()
+	-- 		local diff = require("mini.diff")
+	-- 		diff.setup({
+	-- 			-- Disabled by default
+	-- 			source = diff.gen_source.none(),
+	-- 		})
+	-- 	end,
+	-- },
+}
