@@ -2,10 +2,10 @@ return {
 	-- Make sure to set this up properly if you have lazy=true
 	"MeanderingProgrammer/render-markdown.nvim",
 	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-	ft = { "markdown", "Avante" },
+	ft = { "markdown", "codecompanion", "Avante" },
 	config = function()
 		require("render-markdown").setup({
-			file_types = { "markdown", "Avante" },
+			file_types = { "markdown", "codecompanion", "Avante" },
 			preset = "obsidian",
 			completions = {
 				blink = { enabled = true },
