@@ -16,7 +16,7 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			"Kaiser-Yang/blink-cmp-avante",
+			-- "Kaiser-Yang/blink-cmp-avante",
 		},
 		enabled = true,
 		opts = function(_, opts)
@@ -43,16 +43,19 @@ return {
 					"path",
 					"snippets",
 					"buffer",
-					"avante",
+					-- "avante",
+				},
+				per_filetype = {
+					codecompanion = { "codecompanion" },
 				},
 				providers = {
-					avante = {
-						module = "blink-cmp-avante",
-						name = "Avante",
-						opts = {
-							-- options for blink-cmp-avante
-						},
-					},
+					-- avante = {
+					-- 	module = "blink-cmp-avante",
+					-- 	name = "Avante",
+					-- 	opts = {
+					-- 		-- options for blink-cmp-avante
+					-- 	},
+					-- },
 					lsp = {
 						name = "lsp",
 						enabled = true,
