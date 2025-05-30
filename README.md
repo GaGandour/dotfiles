@@ -14,6 +14,7 @@ I use Zsh as my shell.
 
 ### Kitty
 I use [Kitty](https://sw.kovidgoyal.net/kitty/) as my terminal emulator. You can install it with:
+OBS: currently transitioning to Ghostty. Still testing before commiting.
 ```bash
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
@@ -94,12 +95,6 @@ brew install npm
 ```bash
 brew install bat
 ```
-
-(Optional) [The F***](https://github.com/nvbn/thefuck). It's an ugly word, but a useful tool. You can install it with:
-```bash
-brew install thefuck
-```
-If it doesn't work, (even after sourcing the `.zshrc` file), go to the repo and check the dependencies.
 
 (Optional) [ZSH-Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/)
 Suggests an autocomplete in zsh terminal. Can be installed with:
