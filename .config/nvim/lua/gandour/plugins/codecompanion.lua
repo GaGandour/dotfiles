@@ -33,10 +33,10 @@ return {
 	-- 					return require("codecompanion.adapters").extend("ollama", {
 	-- 						schema = {
 	-- 							model = {
-	-- 								-- default = "gemma3:4b",
+	-- 								default = "gemma3:4b",
 	-- 								-- default = "qwen2.5-coder:7b",
 	-- 								-- default = "qwen3:8b",
-	-- 								default = "codellama:7b-instruct",
+	-- 								-- default = "codellama:7b-instruct",
 	-- 							},
 	-- 							num_ctx = {
 	-- 								default = 16000,
@@ -46,8 +46,8 @@ return {
 	-- 				end,
 	-- 			},
 	-- 			strategies = {
-	-- 				chat = { adapter = "copilot" },
-	-- 				inline = { adapter = "copilot" },
+	-- 				chat = { adapter = "ollama" },
+	-- 				inline = { adapter = "ollama" },
 	-- 			},
 	-- 			display = {
 	-- 				chat = {
