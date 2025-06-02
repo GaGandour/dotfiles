@@ -7,9 +7,9 @@ return {
 	-- 		-- add any opts here
 	-- 		-- for example
 	-- 		provider = "ollama",
-	-- 		mode = "legacy", -- legacy or agentic
+	-- 		mode = "agentic", -- legacy or agentic
 	-- 		ollama = {
-	-- 			model = "qwen3:8b",
+	-- 			model = "gemma3:4b",
 	-- 		},
 	-- 		copilot = {
 	-- 			model = "claude-3.7-sonnet",

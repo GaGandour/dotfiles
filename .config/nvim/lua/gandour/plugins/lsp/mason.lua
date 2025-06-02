@@ -31,7 +31,7 @@ return {
             -- list of servers for mason to install
             ensure_installed = {
                 "lua_ls",
-                "ruff",
+                -- "ruff",
                 "jedi_language_server",
                 "gopls",
                 "buf_ls",
