@@ -57,10 +57,10 @@ return {
 			},
 		})
 
-		-- lspconfig["ruff"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- })
+		lspconfig["ruff"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		lspconfig["jedi_language_server"].setup({
 			capabilities = capabilities,
