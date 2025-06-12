@@ -8,3 +8,5 @@ window-padding-y = 8
 theme = catppuccin-frappe
 window-decoration = none
 macos-titlebar-style = hidden
+
+cursor-style = bar
