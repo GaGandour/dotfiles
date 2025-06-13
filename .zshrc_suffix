@@ -36,7 +36,6 @@ alias tree="ls --tree"
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
-alias cd="z"
 
 # ----- Bat (better cat) -----
 export BAT_THEME=ansi
@@ -75,3 +74,5 @@ source <(fzf --zsh)
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+alias asr="atuin scripts run"
