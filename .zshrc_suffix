@@ -70,3 +70,8 @@ export EDITOR=nvim
 # ---- fzf -----
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# ---- Atuin ----
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
