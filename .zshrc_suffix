@@ -76,3 +76,4 @@ source <(fzf --zsh)
 eval "$(atuin init zsh)"
 
 alias asr="atuin scripts run"
+alias asl="atuin scripts list"
