@@ -1,33 +1,7 @@
 return {
-	"williamboman/mason.nvim",
-	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-	},
-	config = function()
-		-- 	-- import mason
-		local mason = require("mason")
-		--
-		-- 	-- import mason-lspconfig
-		local mason_lspconfig = require("mason-lspconfig")
-		--
-		local mason_tool_installer = require("mason-tool-installer")
-		--
-		-- 	-- enable mason and configure icons
-		mason.setup({
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-
-				-- ui config
-				border = "rounded",
-			},
-		})
-		--
-		mason_lspconfig.setup({
+    {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"lua_ls",
@@ -39,24 +13,29 @@ return {
 				"clojure_lsp",
 				"terraformls",
 			},
-			-- auto-install configured servers with lspconfig
-			automatic_installation = true, -- not the same as ensure_installed
+        },
+        dependencies = {
+            {
+                "williamboman/mason.nvim",
+                opts = {
+                    ui = {
+                        icons = {
+                            package_installed = "✓",
+                            package_pending = "➜",
+                            package_uninstalled = "✗",
+                        },
 
-			automatic_enable = {
-				exclude = {
-					"lua_ls",
-					"ruff",
-					"basedpyright",
-					"gopls",
-					"buf_ls",
-					"clangd",
-					"clojure_lsp",
-					"terraformls",
-				},
-			},
-		})
-		--
-		mason_tool_installer.setup({
+                        -- ui config
+                        border = "rounded",
+                    },
+                },
+            },
+            "neovim/nvim-lspconfig",
+        },
+    },
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        opts = {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
@@ -69,6 +48,9 @@ return {
 				"buf_ls", -- protobuf linter
 				"debugpy", -- python debugger
 			},
-		})
-	end,
+        },
+        dependencies = {
+            "williamboman/mason.nvim",
+        },
+    }
 }
