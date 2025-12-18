@@ -11,6 +11,7 @@
 return {
 	"L3MON4D3/LuaSnip",
 	enabled = true,
+    version = "v2.*",
 	opts = function(_, opts)
 		local ls = require("luasnip")
 

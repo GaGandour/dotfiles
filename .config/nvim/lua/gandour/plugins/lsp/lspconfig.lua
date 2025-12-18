@@ -12,7 +12,7 @@ return {
 	},
 	config = function()
 		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+		local lspconfig = vim.lsp.config()
 
 		local capabilities = require("blink-cmp").get_lsp_capabilities()
 
@@ -62,7 +62,7 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["jedi_language_server"].setup({
+		lspconfig["basedpyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

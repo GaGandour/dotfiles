@@ -32,7 +32,7 @@ return {
 
 			-- Set menu
 			dashboard.section.buttons.val = {
-				dashboard.button("SPC yr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
+				dashboard.button("SPC yr", "󰁯  > Restore Session For Current Directory", "<cmd>AutoSession restore<CR>"),
 				dashboard.button("SPC ee", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
 				dashboard.button("SPC ff", "󰱼  > Find File"),
 				dashboard.button("SPC fs", "  > Find Word"),

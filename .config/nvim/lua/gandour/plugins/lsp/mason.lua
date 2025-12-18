@@ -32,7 +32,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"ruff",
-				"jedi_language_server",
+				"basedpyright",
 				"gopls",
 				"buf_ls",
 				"clangd",
@@ -46,7 +46,7 @@ return {
 				exclude = {
 					"lua_ls",
 					"ruff",
-					"jedi_language_server",
+					"basedpyright",
 					"gopls",
 					"buf_ls",
 					"clangd",
