@@ -2,9 +2,11 @@ return {
 	settings = {
 		basedpyright = {
 			analysis = {
-				diagnosticSeverityOverrides = {
-					reportUnknownArgumentType = false,
-				},
+                typeCheckingMode = "standard",
+				-- diagnosticSeverityOverrides = {
+				-- 	reportUnknownArgumentType = false,
+    --                 reportUnknownVariableType = false,
+				-- },
 			},
 		},
 	},
