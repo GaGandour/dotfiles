@@ -77,3 +77,6 @@ eval "$(atuin init zsh)"
 
 alias asr="atuin scripts run"
 alias asl="atuin scripts list"
+
+# ----- conda path ---
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
